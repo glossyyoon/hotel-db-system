@@ -29,12 +29,12 @@ class Room(models.Model):
 
 
 class Booking(models.Model):
-    booking_roomid = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
+    booking_roomid = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL) 
     booking_userid = models.ForeignKey(Guest, on_delete=models.CASCADE)
-    check_in = models.DateTimeField(auto_now=False)
-    check_out = models.DateTimeField(auto_now=False)
-    check_in_date = models.DateTimeField(auto_now=True)
-    check_out_date = models.DateTimeField(auto_now=True)
+    room_type = models.CharField(max_length=10)
+    check_in_time = models.DateTimeField()
+    check_out_time = models.DateTimeField()
+    check_in_date = models.DateTimeField()
 
     def __str__(self):
         return f'From = {self.check_in.strftime("%d-%b-%Y %H:%M")} To = {self.check_out.strftime("%d-%b-%Y %H:%M")}'

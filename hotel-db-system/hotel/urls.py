@@ -19,7 +19,11 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('userApp/', include('UserApp.urls')),
+<<<<<<< HEAD
     path('TaskApp/', include('TaskApp.urls')),
     path('pad/', include('PadApp.urls')),
     path('roomApp/', include('RoomApp.urls')),
+=======
+    path('roomApp', include('RoomApp.urls', namespace="RoomApp")),
+>>>>>>> 965060c454093d6c1f6e726002bc66df629b42c1
 ]
